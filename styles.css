@@ -1,0 +1,360 @@
+/* ==========================================================================
+   1. VARIABLES Y CONFIGURACIÓN BASE
+   ========================================================================== */
+:root {
+    --bg-principal: #0f172a;       /* Azul oscuro profundo */
+    --bg-secundario: #1e293b;      /* Azul grisáceo para tarjetas/header */
+    --bg-consola: #020617;         /* Negro azulado para código */
+    --color-texto: #f8fafc;        /* Blanco grisáceo para lectura */
+    --color-mutado: #94a3b8;       /* Gris para textos secundarios */
+    --primario: #ef4444;           /* Rojo moderno y vibrante */
+    --primario-hover: #dc2626;     /* Rojo más oscuro para interacción */
+    --exito: #10b981;              /* Verde para estados activos */
+    --borde: #334155;              /* Gris azulado para líneas divisorias */
+    --fuente: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-principal);
+    color: var(--color-texto);
+    font-family: var(--fuente);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+hr.divider {
+    border: 0;
+    height: 1px;
+    background: var(--borde);
+    margin: 40px 0;
+}
+
+/* ==========================================================================
+   2. COMPONENTES: BOTONES Y ELEMENTOS COMUNES
+   ========================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 0.95rem;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--primario);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primario-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #475569;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #334155;
+}
+
+.btn-danger {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+    border: 1px solid #991b1b;
+}
+
+.btn-danger:hover {
+    background-color: #991b1b;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.section-subtitle {
+    color: var(--color-mutado);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* ==========================================================================
+   3. ENCABEZADO (HEADER)
+   ========================================================================== */
+.main-header {
+    background-color: var(--bg-secundario);
+    border-bottom: 1px solid var(--borde);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 15px 0;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primario);
+}
+
+.logo span {
+    color: var(--color-texto);
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.main-nav a {
+    color: var(--color-mutado);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover, .main-nav a.active {
+    color: var(--primario);
+}
+
+/* ==========================================================================
+   4. SECCIÓN HERO (BIENVENIDA)
+   ========================================================================== */
+.hero-section {
+    padding: 60px 0;
+    background: radial-gradient(circle at top right, rgba(239, 68, 68, 0.1), transparent 50%);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: var(--color-mutado);
+    margin-bottom: 25px;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--exito);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--exito);
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.tech-card {
+    background-color: var(--bg-secundario);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    padding: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #38bdf8;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+}
+
+/* ==========================================================================
+   5. SECCIÓN CARACTERÍSTICAS (GRID)
+   ========================================================================== */
+.features-section {
+    padding: 40px 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.feature-card {
+    background-color: var(--bg-secundario);
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    padding: 25px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(239, 68, 68, 0.4);
+}
+
+.icon-box {
+    font-size: 2rem;
+    color: var(--primario);
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+}
+
+.feature-card p {
+    color: var(--color-mutado);
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   6. CONSOLA API INTERACTIVA
+   ========================================================================== */
+.api-section {
+    padding: 40px 0;
+}
+
+.api-container {
+    background-color: var(--bg-secundario);
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.api-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.response-box {
+    background-color: var(--bg-consola);
+    border-radius: 6px;
+    padding: 20px;
+    border: 1px solid var(--borde);
+    position: relative;
+}
+
+.box-label {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 0.75rem;
+    color: #475569;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.response-box pre {
+    overflow-x: auto;
+    margin: 0;
+}
+
+.response-box code {
+    font-family: 'Courier New', Courier, monospace;
+    color: #a7f3d0; /* Tono verde claro agradable para JSON */
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   7. PIE DE PÁGINA (FOOTER)
+   ========================================================================== */
+.main-footer {
+    background-color: var(--bg-secundario);
+    border-top: 1px solid var(--borde);
+    padding: 20px 0;
+    margin-top: 60px;
+    font-size: 0.9rem;
+    color: var(--color-mutado);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links a {
+    color: var(--color-mutado);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--primario);
+}
+
+/* ==========================================================================
+   8. RESPONSIVE DESIGN (MÓVILES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .header-flex, .footer-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .status-badge {
+        display: flex;
+        justify-content: center;
+        width: max-content;
+        margin: 0 auto 25px auto;
+    }
+}

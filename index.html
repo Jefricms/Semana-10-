@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Servidor Node.js</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-flex">
+            <div class="logo">
+                <i class="fa-solid fa-server"></i> <span>NodeApp</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#inicio" class="active">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#consola">Consola API</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero-section">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Bienvenido a mi proyecto web</h1>
+                <p>Un entorno de desarrollo ágil y estructurado, conectado a un backend eficiente en <strong>Node.js</strong>.</p>
+                <div class="status-badge">
+                    <span class="status-dot online"></span> Servidor Local Activo
+                </div>
+                <a href="#consola" class="btn btn-primary">Probar API</a>
+            </div>
+            <div class="hero-image">
+                <div class="tech-card">
+                    <code>const express = require('express');</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <section id="servicios" class="features-section">
+            <h2 class="section-title">Componentes del Sistema</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fa-brands fa-node-js"></i></div>
+                    <h3>Backend Robusto</h3>
+                    <p>Arquitectura escalable construida sobre Node.js y gestión de rutas optimizada.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fa-solid fa-code-branch"></i></div>
+                    <h3>Control de Versiones</h3>
+                    <p>Flujo de trabajo colaborativo integrado perfectamente con Git y GitHub.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fa-solid fa-database"></i></div>
+                    <h3>Persistencia</h3>
+                    <p>Preparado para la integración de modelos y consumo de endpoints estructurados.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <section id="consola" class="api-section">
+            <h2 class="section-title">Consola de Pruebas API</h2>
+            <p class="section-subtitle">Interactúa con el servidor de Node.js en tiempo real de forma asíncrona.</p>
+            
+            <div class="api-container">
+                <div class="api-actions">
+                    <button id="btn-cargar" class="btn btn-secondary">
+                        <i class="fa-solid fa-rotate"></i> Consultar Datos
+                    </button>
+                    <button id="btn-limpiar" class="btn btn-danger">Limpiar</button>
+                </div>
+                
+                <div class="response-box">
+                    <span class="box-label">Respuesta del Servidor (JSON):</span>
+                    <pre><code id="output-response">// Los datos del backend se mostrarán aquí...</code></pre>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Entorno de Desarrollo. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
